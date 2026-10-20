@@ -1,0 +1,36 @@
+CREATE DATABASE etec_abidias2;
+USE etec_abidias2;
+
+CREATE TABLE alunos (
+rm varchar(10) PRIMARY KEY,
+nome varchar(100)
+);
+
+INSERT INTO alunos (rm, nome) VALUES ('0101', 'Francisco');
+INSERT INTO alunos (rm, nome) VALUES ('0102', 'Ana');
+INSERT INTO alunos (rm, nome) VALUES ('0103', 'jose');
+
+select * from alunos;
+
+CREATE TABLE cursos(
+idCurso int PRIMARY KEY,
+nome VARCHAR(30)
+);
+
+INSERT INTO cursos (idCurso, nome) VALUES ('1', 'DS');
+INSERT INTO cursos (idCurso, nome) VALUES ('2', 'ADM');
+
+select * FROM cursos;
+
+CREATE TABLE cursos_alunos(
+idRegistro INT PRIMARY KEY,
+idCurso int,
+rm varchar(10),
+FOREIGN KEY (idCurso) REFERENCES cursos (idCurso),
+FOREIGN KEY (rm) REFERENCES alunos (rm)
+);
+
+INSERT INTO cursos_alunos VALUES (1,1, '0101');
+INSERT INTO cursos_alunos VALUES (2,2, '0102');
+
+
