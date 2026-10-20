@@ -33,4 +33,5 @@ FOREIGN KEY (rm) REFERENCES alunos (rm)
 INSERT INTO cursos_alunos VALUES (1,1, '0101');
 INSERT INTO cursos_alunos VALUES (2,2, '0102');
 
+select ca.idCurso, ca.rm, c.nome nome_curso, a.nome nome_aluno from cursos_alunos ca inner join cursos c on ca.idCurso = c.idCurso inner join alunos a on ca.rm = a.rm;
 
